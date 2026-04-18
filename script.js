@@ -69,31 +69,31 @@ function initLogoCanvas() {
   const CX = W / 2;
   const CY = H / 2;
 
-  const TEAL   = '#2E94A5';
+  const TEAL = '#2E94A5';
   const ORANGE = '#F7931E';
-  const WHITE  = 'rgba(255,255,255,0.85)';
+  const WHITE = 'rgba(255,255,255,0.85)';
 
   // ---- Node Definitions (relative to center) ----
   // The "D" shape: a vertical bar on the left + arc nodes on the right
   const nodes = [
     // Left vertical bar — 5 nodes
-    { id: 0, x: -80, y: -120, r: 6,  color: TEAL,   layer: 0 },
-    { id: 1, x: -80, y:  -60, r: 6,  color: TEAL,   layer: 0 },
-    { id: 2, x: -80, y:    0, r: 8,  color: WHITE,  layer: 0 },
-    { id: 3, x: -80, y:   60, r: 6,  color: TEAL,   layer: 0 },
-    { id: 4, x: -80, y:  120, r: 6,  color: TEAL,   layer: 0 },
+    { id: 0, x: -80, y: -120, r: 6, color: TEAL, layer: 0 },
+    { id: 1, x: -80, y: -60, r: 6, color: TEAL, layer: 0 },
+    { id: 2, x: -80, y: 0, r: 8, color: WHITE, layer: 0 },
+    { id: 3, x: -80, y: 60, r: 6, color: TEAL, layer: 0 },
+    { id: 4, x: -80, y: 120, r: 6, color: TEAL, layer: 0 },
 
     // Middle layer — hidden nodes along D curve
-    { id: 5,  x:  -20, y: -110, r: 5, color: ORANGE, layer: 1 },
-    { id: 6,  x:   20, y:  -90, r: 5, color: ORANGE, layer: 1 },
-    { id: 7,  x:   55, y:  -55, r: 5, color: ORANGE, layer: 1 },
-    { id: 8,  x:   70, y:    0, r: 7, color: ORANGE, layer: 1 },
-    { id: 9,  x:   55, y:   55, r: 5, color: ORANGE, layer: 1 },
-    { id: 10, x:   20, y:   90, r: 5, color: ORANGE, layer: 1 },
-    { id: 11, x:  -20, y:  110, r: 5, color: ORANGE, layer: 1 },
+    { id: 5, x: -20, y: -110, r: 5, color: ORANGE, layer: 1 },
+    { id: 6, x: 20, y: -90, r: 5, color: ORANGE, layer: 1 },
+    { id: 7, x: 55, y: -55, r: 5, color: ORANGE, layer: 1 },
+    { id: 8, x: 70, y: 0, r: 7, color: ORANGE, layer: 1 },
+    { id: 9, x: 55, y: 55, r: 5, color: ORANGE, layer: 1 },
+    { id: 10, x: 20, y: 90, r: 5, color: ORANGE, layer: 1 },
+    { id: 11, x: -20, y: 110, r: 5, color: ORANGE, layer: 1 },
 
     // Output node — center right
-    { id: 12, x:  80, y:    0, r: 9, color: TEAL,   layer: 2 },
+    { id: 12, x: 80, y: 0, r: 9, color: TEAL, layer: 2 },
   ];
 
   // ---- Edge Definitions ----
@@ -130,7 +130,7 @@ function initLogoCanvas() {
 
   function drawEdge(fromNode, toNode, alpha) {
     const from = getNodePos(fromNode);
-    const to   = getNodePos(toNode);
+    const to = getNodePos(toNode);
 
     const grad = ctx.createLinearGradient(from.x, from.y, to.x, to.y);
     grad.addColorStop(0, `rgba(46,148,165,${alpha * 0.5})`);
@@ -179,9 +179,9 @@ function initLogoCanvas() {
 
     const [fromId, toId] = particle.edge;
     const fromNode = nodes[fromId];
-    const toNode   = nodes[toId];
+    const toNode = nodes[toId];
     const from = getNodePos(fromNode);
-    const to   = getNodePos(toNode);
+    const to = getNodePos(toNode);
 
     const t = particle.progress;
     const x = from.x + (to.x - from.x) * t;
@@ -274,9 +274,9 @@ function initLogoCanvas() {
    Formspree Waitlist Submission
    ============================================ */
 function initWaitlistForm() {
-  const form      = document.getElementById('waitlistForm');
-  const input     = document.getElementById('emailInput');
-  const msgEl     = document.getElementById('formMessage');
+  const form = document.getElementById('waitlistForm');
+  const input = document.getElementById('emailInput');
+  const msgEl = document.getElementById('formMessage');
   const submitBtn = document.getElementById('submitBtn');
 
   if (!form) return;
@@ -285,7 +285,7 @@ function initWaitlistForm() {
   //     1. Go to https://formspree.io/
   //     2. Create a new form and copy the endpoint URL
   //     3. Replace the URL below
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xojydrlp';
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -310,7 +310,7 @@ function initWaitlistForm() {
       });
 
       if (res.ok) {
-        showMessage(msgEl, 'Access request received. We\'ll be in touch.', 'success');
+        showMessage(msgEl, 'Thanks for joining the DeepDraft.ai beta queue! We’ll be in touch with updates on release');
         input.value = '';
         animateSuccess();
       } else {
