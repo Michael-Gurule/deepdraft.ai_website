@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeepDraft — Neural Architecture for Production Intelligence</title>
+  <meta name="description"
+    content="DeepDraft is the neural architecture platform for production intelligence across Finance, Marketing, and Trends." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'navy': '#0D1117',
+            'teal': '#2E94A5',
+            'teal-light': '#3BAFC2',
+            'orange': '#F7931E',
+          },
+          fontFamily: {
+            'mono': ['JetBrains Mono', 'Fira Code', 'monospace'],
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body class="bg-navy text-white overflow-x-hidden">
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center opacity-90 hover:opacity-100 transition-opacity">
+        <img src="assets/DeepDraft_logomark-white.png" alt="DeepDraft" class="h-8 w-auto" />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#solutions"
+          class="text-sm text-gray-400 hover:text-white transition-colors tracking-wide">Solutions</a>
+        <a href="#api" class="text-sm text-gray-400 hover:text-white transition-colors tracking-wide">API</a>
+        <a href="#studio" class="text-sm text-gray-400 hover:text-white transition-colors tracking-wide">Studio</a>
+      </div>
+      <a href="#waitlist" class="btn-primary text-sm font-mono">
+        <span class="hidden sm:inline">Join Beta Queue</span>
+        <span class="sm:hidden">Beta</span>
+        <span class="ml-1 text-orange">_</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center w-full">
+
+      <!-- Left: Headline -->
+      <div class="fade-in-up">
+        <div class="inline-flex items-center gap-2 mb-6 glass-panel px-4 py-2 text-xs font-mono text-teal">
+          <span class="w-2 h-2 rounded-full bg-teal animate-pulse"></span>
+          SYSTEM ONLINE — BETA PRE-RELEASE
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 tracking-tight">
+          The Neural Architecture<br />
+          for <span class="text-teal">Production</span><br />
+          <span class="text-orange">Intelligence.</span>
+        </h1>
+        <p class="text-gray-400 text-lg mb-10 leading-relaxed max-w-lg">
+          DeepDraft.ai synthesizes deep research with AI precision — purpose-built for Finance, Marketing, and Trend
+          Intelligence at enterprise scale.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#waitlist" class="btn-primary font-mono">
+            <span class="text-orange mr-1">$</span>
+            <span class="hidden sm:inline">join_priority_queue --access early</span>
+            <span class="sm:hidden">join_priority_queue</span>
+          </a>
+          <a href="#api" class="btn-ghost font-mono">
+            View Docs →
+          </a>
+        </div>
+        <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono text-gray-500">
+          <span>v0.1.0-beta Pre-Release</span>
+          <span class="hidden sm:block w-px h-4 bg-gray-700"></span>
+          <span>Python · REST · WebSocket</span>
+          <span class="hidden sm:block w-px h-4 bg-gray-700"></span>
+          <span class="text-teal">SOC2 Ready</span>
+        </div>
+      </div>
+
+      <!-- Right: DeepDraft Logo -->
+      <div class="fade-in-up delay-200 flex justify-center items-center">
+        <div class="relative flex items-center justify-center">
+          <div class="logo-glow-ring"></div>
+          <!-- canvas logoCanvas kept for reference, replaced by PNG below -->
+          <!-- <canvas id="logoCanvas" width="420" height="420" class="relative z-10"></canvas> -->
+          <img src="assets/deepdraft_logoweb.png" alt="DeepDraft neural network logo" class="relative z-10 logo-png" />
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div
+      class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-600 text-xs font-mono animate-bounce">
+      <span>scroll</span>
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12l7 7 7-7" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- Verticals / Solutions Grid -->
+  <section id="solutions" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 fade-in-up">
+        <p class="text-xs font-mono text-teal tracking-widest mb-3">// DOMAIN_MODULES</p>
+        <h2 class="text-3xl md:text-4xl font-bold">Intelligence Verticals</h2>
+        <p class="text-gray-400 mt-4 max-w-xl mx-auto">Pre-trained domain modules fine-tuned on industry-specific
+          corpora for signal-rich output.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Finance -->
+        <div class="vertical-card fade-in-up glass-panel p-8 group cursor-pointer" data-color="teal">
+          <div class="icon-wrapper mb-6 text-teal group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="trending-up" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">DeepDraft<span class="text-teal">Finance</span></h3>
+          <h4 class="text-teal">Precision Quants</h4>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Resilient architectures for non-linear risk. Move beyond Gaussian assumptions with Heston-driven volatility
+            modeling and Bayesian portfolio optimization.
+
+
+          </p>
+          <ul class="space-y-2 text-xs font-mono text-gray-500">
+            <li class="flex items-center gap-2"><span class="text-teal">›</span> Stochastic Volatility</li>
+            <li class="flex items-center gap-2"><span class="text-teal">›</span> Monte Carlo Risk Parity</li>
+            <li class="flex items-center gap-2"><span class="text-teal">›</span> Bayesian Asset Allocation.</li>
+          </ul>
+          <div class="mt-6 h-px bg-gradient-to-r from-teal/40 to-transparent"></div>
+        </div>
+
+        <!-- Marketing -->
+        <div class="vertical-card fade-in-up delay-100 glass-panel p-8 group cursor-pointer" data-color="orange">
+          <div class="icon-wrapper mb-6 text-orange group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="megaphone" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">DeepDraft<span class="text-orange">Marketing</span></h3>
+          <h4 class="text-orange">Causal Growth Systems</h4>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Scientific attribution for true incrementality. Isolate causal impact and predict lifetime value using
+            Double Machine Learning and survival ensembles.
+
+          </p>
+          <ul class="space-y-2 text-xs font-mono text-gray-500">
+            <li class="flex items-center gap-2"><span class="text-orange">›</span> Incremental Lift Discovery</li>
+            <li class="flex items-center gap-2"><span class="text-orange">›</span> Causal Churn Guard</li>
+            <li class="flex items-center gap-2"><span class="text-orange">›</span> Adaptive LTV Forecasting</li>
+          </ul>
+          <div class="mt-6 h-px bg-gradient-to-r from-orange/40 to-transparent"></div>
+        </div>
+
+        <!-- Trends -->
+        <div class="vertical-card fade-in-up delay-200 glass-panel p-8 group cursor-pointer" data-color="purple">
+          <div class="icon-wrapper mb-6 text-purple-400 group-hover:scale-110 transition-transform duration-300">
+            <i data-lucide="radar" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">DeepDraft<span class="text-purple-400">Trends</span></h3>
+          <h4 class="text-purple-400">Horizon Engine</h4>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Causal observability for complex systems. Utilize Neural ODEs and N-BEATS to detect structural drift and
+            anticipate failures before they materialize.
+
+          </p>
+          <ul class="space-y-2 text-xs font-mono text-gray-500">
+            <li class="flex items-center gap-2"><span class="text-purple-400">›</span> Neural Time-Series Forecasting
+            </li>
+            <li class="flex items-center gap-2"><span class="text-purple-400">›</span> Physics-Informed Anomaly
+              Detection</li>
+            <li class="flex items-center gap-2"><span class="text-purple-400">›</span> Root Cause Telemetry/li>
+          </ul>
+          <div class="mt-6 h-px bg-gradient-to-r from-purple-400/40 to-transparent"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Hybrid Feature: API vs Studio -->
+  <section id="api" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 fade-in-up">
+        <p class="text-xs font-mono text-teal tracking-widest mb-3">// DEPLOYMENT_MODES</p>
+        <h2 class="text-3xl md:text-4xl font-bold">One Platform. Two Surfaces.</h2>
+        <p class="text-gray-400 mt-4 max-w-xl mx-auto">Deploy intelligence your way — integrate directly into your stack
+          or use our visual interface.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- API Card -->
+        <div class="glass-panel p-8 fade-in-up group hover:border-teal/30 transition-all duration-500">
+          <div class="flex items-center gap-3 mb-6">
+            <div
+              class="w-10 h-10 rounded-xl bg-teal/10 border border-teal/20 flex items-center justify-center text-teal">
+              <i data-lucide="terminal" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg">DeepDraft <span class="text-teal font-mono">API</span></h3>
+              <p class="text-xs text-gray-500 font-mono">The Speed of the Frontier.</p>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-8">
+            Programmatic access to all DeepDraft intelligence modules. REST, WebSocket streaming, and Python SDK.
+            Designed for production-grade integration.
+          </p>
+          <div class="space-y-3 mb-8">
+            <div class="feature-row">
+              <i data-lucide="zap" class="w-4 h-4 text-teal"></i>
+              <p class="text-teal">Managed Infrastructure:
+                <span class="text-sm text-gray-300"> Zero-ops deployment. We handle the 2026-standard compute
+                  orchestration so you can focus on the logic.
+              </p>
+            </div>
+            <div class="feature-row">
+              <i data-lucide="layers" class="w-4 h-4 text-teal"></i>
+              <p class="text-teal">Global Latency:
+                <span class="text-sm text-gray-300"> Edge-optimized endpoints for real-time inference in
+                  finance and telemetry.
+              </p>
+            </div>
+            <div class="feature-row">
+              <i data-lucide="shield-check" class="w-5 h-5 text-teal"></i>
+              <p class="text-teal">Rapid Integration:
+                <span class="text-sm text-gray-300"> Connect your data streams via our high-performance
+                  Python SDK in under five minutes.
+              </p>
+            </div>
+            <div class="feature-row">
+              <i data-lucide="webhook" class="w-4 h-4 text-teal"></i>
+              <p class="text-teal">Always Current:
+                <span class="text-sm text-gray-300"> Instant access to our latest research derivatives, including Causal
+                  Discovery and State Space Models.
+              </p>
+            </div>
+          </div>
+          <div class="text-xs font-mono text-gray-500 border border-white/5 rounded-lg p-3 bg-black/20">
+            <span class="text-teal">pip install</span> deepdraft-client
+          </div>
+        </div>
+
+        <!-- Studio Card -->
+        <div id="studio"
+          class="glass-panel p-8 fade-in-up delay-100 group hover:border-orange/30 transition-all duration-500">
+          <div class="flex items-center gap-3 mb-6">
+            <div
+              class="w-10 h-10 rounded-xl bg-orange/10 border border-orange/20 flex items-center justify-center text-orange">
+              <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg">DeepDraft <span class="text-orange font-mono">Studio</span></h3>
+              <p class="text-xs text-gray-500 font-mono">The Sovereignty of the Enterprise.</p>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-8">
+            A visual intelligence workspace. Build research pipelines, monitor signals, generate reports, and
+            collaborate — no code required.
+          </p>
+          <div class="space-y-3 mb-8">
+            <div class="feature-row">
+              <i data-lucide="git-branch" class="w-4 h-4 text-orange"></i>
+              <p class="text-orange">VPC Deployment:
+                <span class="text-sm text-gray-300"> Run the entire DeepDraft stack within your private
+                  cloud. Your data never leaves your perimeter.
+              </p>
+            </div>
+            <div class="feature-row">
+              <i data-lucide="bar-chart-2" class="w-4 h-4 text-orange"></i>
+              <p class="text-orange">Air-Gapped Ready:
+                <span class="text-sm text-gray-300"> Full support for high-security environments
+                  requiring local model training and execution.
+              </p>
+            </div>
+            <div class="feature-row">
+              <i data-lucide="users" class="w-4 h-4 text-orange"></i>
+              <p class="text-orange">Custom Fine-Tuning:
+                <span class="text-sm text-gray-300"> Leverage your proprietary datasets to fine-tune
+                  DeepDraft blueprints without external exposure.
+              </p>
+            </div>
+            <div class="feature-row">
+              <i data-lucide="file-text" class="w-4 h-4 text-orange"></i>
+              <p class="text-orange">Fixed-Cost Licensing:
+                <span class="text-sm text-gray-300"> Predictable annual budgeting without the
+                  variability of usage-based API billing.
+              </p>
+            </div>
+          </div>
+          <div class="text-xs font-mono text-gray-500 border border-white/5 rounded-lg p-3 bg-black/20">
+            <span class="text-orange">studio</span>.deepdraft.io <span class="text-gray-600">→ Launch Workspace</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Code Terminal -->
+  <section class="py-24 relative">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12 fade-in-up">
+        <p class="text-xs font-mono text-teal tracking-widest mb-3">// QUICKSTART</p>
+        <h2 class="text-3xl md:text-4xl font-bold">Ship Intelligence in Minutes.</h2>
+      </div>
+
+      <div class="terminal-window fade-in-up glass-panel overflow-hidden">
+        <!-- Terminal Header -->
+        <div class="terminal-header flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-black/30">
+          <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
+          <span class="ml-3 text-xs font-mono text-gray-500">deepdraft_quickstart.py</span>
+          <div class="ml-auto flex items-center gap-2">
+            <span class="text-xs font-mono text-teal/60">Python 3.11</span>
+          </div>
+        </div>
+
+        <!-- Terminal Body -->
+        <div class="terminal-body p-6 font-mono text-sm leading-7 overflow-x-auto">
+          <div class="code-line"><span class="text-gray-600"> 1  </span><span class="text-purple-400">from</span> <span class="text-teal">deepdraft</span> <span class="text-purple-400">import</span> <span class="text-white">Client, AnalysisDepth</span></div>
+          <div class="code-line"><span class="text-gray-600"> 2  </span><span class="text-purple-400">import</span> <span class="text-white">os</span></div>
+          <div class="code-line"><span class="text-gray-600"> 3  </span></div>
+          <div class="code-line"><span class="text-gray-600"> 4  </span><span class="text-gray-500"># Authenticate once; reuse the client across requests</span></div>
+          <div class="code-line"><span class="text-gray-600"> 5  </span><span class="text-blue-300">client</span> <span class="text-white">=</span> <span class="text-yellow-300">Client</span><span class="text-white">(</span><span class="text-blue-200">api_key</span><span class="text-white">=</span><span class="text-teal">os</span><span class="text-white">.</span><span class="text-yellow-300">environ</span><span class="text-white">[</span><span class="text-orange">"DEEPDRAFT_API_KEY"</span><span class="text-white">])</span></div>
+          <div class="code-line"><span class="text-gray-600"> 6  </span></div>
+          <div class="code-line"><span class="text-gray-600"> 7  </span><span class="text-gray-500"># Stream a deep earnings analysis for NVDA Q1-2025</span></div>
+          <div class="code-line"><span class="text-gray-600"> 8  </span><span class="text-purple-400">with</span> <span class="text-blue-300">client</span><span class="text-white">.</span><span class="text-yellow-300">finance</span><span class="text-white">.</span><span class="text-yellow-300">earnings</span><span class="text-white">(</span></div>
+          <div class="code-line"><span class="text-gray-600"> 9  </span><span class="text-white">    </span><span class="text-blue-200">ticker</span><span class="text-white">=</span><span class="text-orange">"NVDA"</span><span class="text-white">,</span></div>
+          <div class="code-line"><span class="text-gray-600">10  </span><span class="text-white">    </span><span class="text-blue-200">period</span><span class="text-white">=</span><span class="text-orange">"Q1-2025"</span><span class="text-white">,</span></div>
+          <div class="code-line"><span class="text-gray-600">11  </span><span class="text-white">    </span><span class="text-blue-200">depth</span><span class="text-white">=</span><span class="text-teal">AnalysisDepth</span><span class="text-white">.</span><span class="text-blue-200">DEEP</span><span class="text-white">,</span></div>
+          <div class="code-line"><span class="text-gray-600">12  </span><span class="text-white">    </span><span class="text-blue-200">stream</span><span class="text-white">=</span><span class="text-purple-400">True</span><span class="text-white">,</span></div>
+          <div class="code-line"><span class="text-gray-600">13  </span><span class="text-white">) </span><span class="text-purple-400">as</span> <span class="text-blue-300">response</span><span class="text-white">:</span></div>
+          <div class="code-line"><span class="text-gray-600">14  </span><span class="text-white">    </span><span class="text-purple-400">for</span> <span class="text-blue-300">chunk</span> <span class="text-purple-400">in</span> <span class="text-blue-300">response</span><span class="text-white">.</span><span class="text-yellow-300">iter_text</span><span class="text-white">():</span></div>
+          <div class="code-line"><span class="text-gray-600">15  </span><span class="text-white">        </span><span class="text-yellow-300">print</span><span class="text-white">(</span><span class="text-blue-300">chunk</span><span class="text-white">, end</span><span class="text-white">=</span><span class="text-orange">""</span><span class="text-white">, flush</span><span class="text-white">=</span><span class="text-purple-400">True</span><span class="text-white">)</span></div>
+          <div class="code-line"><span class="text-gray-600">16  </span></div>
+          <div class="code-line output-line"><span class="text-gray-600">17  </span><span class="text-green-400">✓ [NVDA Q1-2025] Revenue $26.0B (+262% YoY). Data center segment drove 87% of revenue.</span></div>
+          <div class="code-line"><span class="text-gray-600">18  </span><span class="text-green-400">  Gross margin expanded to 78.4%. Management raised FY guidance to $100B. Key risk: export</span></div>
+          <div class="code-line"><span class="text-gray-600">19  </span><span class="text-green-400">  controls on H100 shipments to China flagged as material headwind in 10-Q filing.</span><span class="terminal-cursor">█</span></div>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-wrap justify-center gap-x-8 gap-y-3 text-xs font-mono text-gray-500 fade-in-up">
+        <span class="flex items-center gap-2"><i data-lucide="book-open" class="w-3 h-3 text-teal"></i> Full Documentation</span>
+        <span class="flex items-center gap-2"><i data-lucide="github" class="w-3 h-3 text-teal"></i> SDK on GitHub</span>
+        <span class="flex items-center gap-2"><i data-lucide="message-square" class="w-3 h-3 text-teal"></i> Discord Community</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Waitlist / CTA -->
+  <section id="waitlist" class="py-24 relative">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <div class="fade-in-up">
+        <p class="text-xs font-mono text-teal tracking-widest mb-3">// BETA_ACCESS</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Request Early Access.</h2>
+        <p class="text-gray-400 mb-12 max-w-lg mx-auto">
+          Join the DeepDraft beta and be among the first to deploy production intelligence infrastructure.
+        </p>
+      </div>
+
+      <!-- Terminal Input -->
+      <div class="terminal-window glass-panel overflow-hidden fade-in-up">
+        <div class="terminal-header flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-black/30">
+          <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
+          <span class="ml-3 text-xs font-mono text-gray-500">beta_access.sh</span>
+        </div>
+        <div class="p-6">
+          <form id="waitlistForm" class="space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-2 font-mono text-sm">
+              <div class="flex items-center gap-2 whitespace-nowrap">
+                <span class="text-teal">deepdraft@guest:~$</span>
+                <span class="text-gray-400 hidden sm:inline">join_beta_queue --email</span>
+                <span class="text-gray-400 sm:hidden">--email</span>
+              </div>
+              <div class="relative flex-1">
+                <input type="email" id="emailInput" required placeholder="you@company.com"
+                  class="w-full bg-transparent border-none outline-none text-white placeholder-gray-600 font-mono caret-teal" />
+                <div class="absolute bottom-0 left-0 right-0 h-px bg-teal/30"></div>
+              </div>
+            </div>
+            <div id="formMessage" class="hidden font-mono text-sm"></div>
+            <div class="flex justify-end">
+              <button type="submit" id="submitBtn" class="btn-primary font-mono text-sm group">
+                <span class="text-orange mr-1">↵</span> execute
+                <span class="hidden group-hover:inline ml-1 text-xs text-gray-400">--priority early</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <p class="mt-6 text-xs text-gray-600 font-mono">
+        No spam. Unsubscribe anytime. Beta slots limited.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-12">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <img src="assets/DeepDraft_logomark-white.png" alt="DeepDraft" class="h-7 w-auto opacity-80" />
+        <span class="text-xs text-gray-600 font-mono">v0.1.0-beta</span>
+      </div>
+      <div class="flex items-center gap-6 text-xs text-gray-500 font-mono">
+        <a href="#" class="hover:text-white transition-colors">Privacy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms</a>
+        <a href="#" class="hover:text-white transition-colors">Security</a>
+        <a href="#" class="hover:text-white transition-colors">Status</a>
+      </div>
+      <p class="text-xs text-gray-600 font-mono">
+        © 2026 DeepDraft. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

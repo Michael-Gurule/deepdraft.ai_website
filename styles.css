@@ -1,0 +1,437 @@
+/* ============================================
+   DeepDraft — Custom Styles
+   Engineering Schematic Aesthetic
+   ============================================ */
+
+/* Root Variables */
+:root {
+  --navy: #0D1117;
+  --teal: #2E94A5;
+  --teal-light: #3BAFC2;
+  --orange: #F7931E;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   Global Reset & Base
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--navy);
+  color: #fff;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   Engineering Grid Background
+   ============================================ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(46, 148, 165, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 148, 165, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Radial overlay to fade grid at edges */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 20%,
+    transparent 40%,
+    rgba(13, 17, 23, 0.7) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure all sections appear above the grid */
+nav, section, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   Glassmorphism Panel
+   ============================================ */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+#navbar {
+  background: rgba(13, 17, 23, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+#navbar.scrolled {
+  background: rgba(13, 17, 23, 0.85);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.625rem 1.25rem;
+  background: rgba(46, 148, 165, 0.12);
+  border: 1px solid rgba(46, 148, 165, 0.4);
+  border-radius: 8px;
+  color: var(--teal-light);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background: rgba(46, 148, 165, 0.2);
+  border-color: var(--teal);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(46, 148, 165, 0.2);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.625rem 1.25rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #9CA3AF;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   Logo Glow Ring
+   ============================================ */
+/* Glow lives in a pseudo-element so it can bleed outside the container
+   without affecting layout. Three layered radials — each stops at 100%
+   with full transparency so there is never a hard boundary. */
+.logo-glow-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: ring-pulse 5s ease-in-out infinite;
+}
+
+/* Layer 1 — wide cool base (blue-teal, left-weighted) */
+.logo-glow-ring::before {
+  content: '';
+  position: absolute;
+  inset: -80px;
+  background: radial-gradient(
+    ellipse 85% 75% at 42% 50%,
+    rgba(46, 90, 175, 0.28) 0%,
+    rgba(46, 148, 165, 0.18) 35%,
+    rgba(46, 148, 165, 0.04) 65%,
+    transparent 100%
+  );
+  border-radius: 50%;
+}
+
+/* Layer 2 — warm accent (orange, right-weighted) */
+.logo-glow-ring::after {
+  content: '';
+  position: absolute;
+  inset: -60px;
+  background: radial-gradient(
+    ellipse 60% 55% at 68% 52%,
+    rgba(247, 147, 30, 0.20) 0%,
+    rgba(247, 147, 30, 0.06) 45%,
+    transparent 100%
+  );
+  border-radius: 50%;
+}
+
+@keyframes ring-pulse {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50%       { opacity: 1;    transform: scale(1.04); }
+}
+
+.logo-png {
+  width: 380px;
+  height: auto;
+  /* Transparent PNG — no blend mode needed */
+  filter: drop-shadow(0 0 18px rgba(46, 148, 165, 0.25))
+          drop-shadow(0 0 6px rgba(247, 147, 30, 0.15));
+}
+
+@media (max-width: 768px) {
+  .logo-png {
+    width: 260px;
+  }
+}
+
+/* ============================================
+   Vertical Cards — Hover Glow
+   ============================================ */
+.vertical-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.vertical-card[data-color="teal"]:hover {
+  border-color: rgba(46, 148, 165, 0.35);
+  box-shadow: 0 8px 40px rgba(46, 148, 165, 0.12), 0 0 0 1px rgba(46, 148, 165, 0.1);
+  transform: translateY(-4px);
+}
+
+.vertical-card[data-color="orange"]:hover {
+  border-color: rgba(247, 147, 30, 0.35);
+  box-shadow: 0 8px 40px rgba(247, 147, 30, 0.12), 0 0 0 1px rgba(247, 147, 30, 0.1);
+  transform: translateY(-4px);
+}
+
+.vertical-card[data-color="purple"]:hover {
+  border-color: rgba(167, 139, 250, 0.35);
+  box-shadow: 0 8px 40px rgba(167, 139, 250, 0.12), 0 0 0 1px rgba(167, 139, 250, 0.1);
+  transform: translateY(-4px);
+}
+
+/* ============================================
+   Feature Row (API / Studio Cards)
+   ============================================ */
+.feature-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ============================================
+   Terminal Window
+   ============================================ */
+.terminal-window {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.terminal-header {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.terminal-body {
+  background: rgba(0, 0, 0, 0.2);
+  color: #E2E8F0;
+}
+
+.code-line {
+  display: block;
+  line-height: 1.8;
+  white-space: pre;
+}
+
+.output-line {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Blinking terminal cursor */
+.terminal-cursor {
+  display: inline-block;
+  color: var(--teal);
+  animation: blink 1.1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ============================================
+   Waitlist Form
+   ============================================ */
+#emailInput {
+  caret-color: var(--teal);
+}
+
+#emailInput::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+#emailInput:focus {
+  outline: none;
+}
+
+/* ============================================
+   Intersection Observer Animations
+   ============================================ */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-up.delay-100 { transition-delay: 0.1s; }
+.fade-in-up.delay-200 { transition-delay: 0.2s; }
+.fade-in-up.delay-300 { transition-delay: 0.3s; }
+
+/* ============================================
+   Ambient Background Blobs
+   ============================================ */
+.hero-blob-teal {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(46, 148, 165, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-blob-orange {
+  position: absolute;
+  bottom: 10%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(247, 147, 30, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Add blobs to hero via pseudo-approach using a wrapper */
+#hero > .hero-blob-teal,
+#hero > .hero-blob-orange {
+  position: absolute;
+}
+
+/* ============================================
+   Form Message States
+   ============================================ */
+.form-success {
+  color: #4ADE80;
+}
+
+.form-success::before {
+  content: '✓ ';
+}
+
+.form-error {
+  color: #F87171;
+}
+
+.form-error::before {
+  content: '✗ ';
+}
+
+/* ============================================
+   Scrollbar Styling
+   ============================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(46, 148, 165, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(46, 148, 165, 0.5);
+}
+
+/* ============================================
+   Selection Highlight
+   ============================================ */
+::selection {
+  background: rgba(46, 148, 165, 0.3);
+  color: #fff;
+}
+
+/* ============================================
+   Responsive Tweaks
+   ============================================ */
+@media (max-width: 768px) {
+  /* Hero — logo stacks below headline, constrained width */
+  .logo-png {
+    width: 240px;
+  }
+
+  /* Terminal — smaller font so lines don't force wide scroll */
+  .terminal-body {
+    padding: 1rem;
+    font-size: 0.7rem;
+    line-height: 1.7;
+  }
+
+  .code-line {
+    font-size: 0.7rem;
+  }
+
+  /* Hero section — tighter vertical padding on small screens */
+  #hero .py-20 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  /* Vertical cards — reduce internal padding */
+  .vertical-card {
+    padding: 1.5rem;
+  }
+
+  /* Glass panel cards — reduce padding */
+  .glass-panel.p-8 {
+    padding: 1.5rem;
+  }
+}
