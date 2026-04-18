@@ -99,7 +99,7 @@
           <div class="logo-glow-ring"></div>
           <!-- canvas logoCanvas kept for reference, replaced by PNG below -->
           <!-- <canvas id="logoCanvas" width="420" height="420" class="relative z-10"></canvas> -->
-          <img src="assets/deepdraft_logoweb.png" alt="DeepDraft neural network logo" class="relative z-10 logo-png" />
+          <img src="assets/DeepDraft_logoweb.png" alt="DeepDraft neural network logo" class="relative z-10 logo-png" />
         </div>
       </div>
 
@@ -335,32 +335,72 @@
 
         <!-- Terminal Body -->
         <div class="terminal-body p-6 font-mono text-sm leading-7 overflow-x-auto">
-          <div class="code-line"><span class="text-gray-600"> 1  </span><span class="text-purple-400">from</span> <span class="text-teal">deepdraft</span> <span class="text-purple-400">import</span> <span class="text-white">Client, AnalysisDepth</span></div>
-          <div class="code-line"><span class="text-gray-600"> 2  </span><span class="text-purple-400">import</span> <span class="text-white">os</span></div>
-          <div class="code-line"><span class="text-gray-600"> 3  </span></div>
-          <div class="code-line"><span class="text-gray-600"> 4  </span><span class="text-gray-500"># Authenticate once; reuse the client across requests</span></div>
-          <div class="code-line"><span class="text-gray-600"> 5  </span><span class="text-blue-300">client</span> <span class="text-white">=</span> <span class="text-yellow-300">Client</span><span class="text-white">(</span><span class="text-blue-200">api_key</span><span class="text-white">=</span><span class="text-teal">os</span><span class="text-white">.</span><span class="text-yellow-300">environ</span><span class="text-white">[</span><span class="text-orange">"DEEPDRAFT_API_KEY"</span><span class="text-white">])</span></div>
-          <div class="code-line"><span class="text-gray-600"> 6  </span></div>
-          <div class="code-line"><span class="text-gray-600"> 7  </span><span class="text-gray-500"># Stream a deep earnings analysis for NVDA Q1-2025</span></div>
-          <div class="code-line"><span class="text-gray-600"> 8  </span><span class="text-purple-400">with</span> <span class="text-blue-300">client</span><span class="text-white">.</span><span class="text-yellow-300">finance</span><span class="text-white">.</span><span class="text-yellow-300">earnings</span><span class="text-white">(</span></div>
-          <div class="code-line"><span class="text-gray-600"> 9  </span><span class="text-white">    </span><span class="text-blue-200">ticker</span><span class="text-white">=</span><span class="text-orange">"NVDA"</span><span class="text-white">,</span></div>
-          <div class="code-line"><span class="text-gray-600">10  </span><span class="text-white">    </span><span class="text-blue-200">period</span><span class="text-white">=</span><span class="text-orange">"Q1-2025"</span><span class="text-white">,</span></div>
-          <div class="code-line"><span class="text-gray-600">11  </span><span class="text-white">    </span><span class="text-blue-200">depth</span><span class="text-white">=</span><span class="text-teal">AnalysisDepth</span><span class="text-white">.</span><span class="text-blue-200">DEEP</span><span class="text-white">,</span></div>
-          <div class="code-line"><span class="text-gray-600">12  </span><span class="text-white">    </span><span class="text-blue-200">stream</span><span class="text-white">=</span><span class="text-purple-400">True</span><span class="text-white">,</span></div>
-          <div class="code-line"><span class="text-gray-600">13  </span><span class="text-white">) </span><span class="text-purple-400">as</span> <span class="text-blue-300">response</span><span class="text-white">:</span></div>
-          <div class="code-line"><span class="text-gray-600">14  </span><span class="text-white">    </span><span class="text-purple-400">for</span> <span class="text-blue-300">chunk</span> <span class="text-purple-400">in</span> <span class="text-blue-300">response</span><span class="text-white">.</span><span class="text-yellow-300">iter_text</span><span class="text-white">():</span></div>
-          <div class="code-line"><span class="text-gray-600">15  </span><span class="text-white">        </span><span class="text-yellow-300">print</span><span class="text-white">(</span><span class="text-blue-300">chunk</span><span class="text-white">, end</span><span class="text-white">=</span><span class="text-orange">""</span><span class="text-white">, flush</span><span class="text-white">=</span><span class="text-purple-400">True</span><span class="text-white">)</span></div>
-          <div class="code-line"><span class="text-gray-600">16  </span></div>
-          <div class="code-line output-line"><span class="text-gray-600">17  </span><span class="text-green-400">✓ [NVDA Q1-2025] Revenue $26.0B (+262% YoY). Data center segment drove 87% of revenue.</span></div>
-          <div class="code-line"><span class="text-gray-600">18  </span><span class="text-green-400">  Gross margin expanded to 78.4%. Management raised FY guidance to $100B. Key risk: export</span></div>
-          <div class="code-line"><span class="text-gray-600">19  </span><span class="text-green-400">  controls on H100 shipments to China flagged as material headwind in 10-Q filing.</span><span class="terminal-cursor">█</span></div>
+          <div class="code-line"><span class="text-gray-600"> 1 </span><span class="text-purple-400">from</span> <span
+              class="text-teal">deepdraft</span> <span class="text-purple-400">import</span> <span
+              class="text-white">Client, AnalysisDepth</span></div>
+          <div class="code-line"><span class="text-gray-600"> 2 </span><span class="text-purple-400">import</span> <span
+              class="text-white">os</span></div>
+          <div class="code-line"><span class="text-gray-600"> 3 </span></div>
+          <div class="code-line"><span class="text-gray-600"> 4 </span><span class="text-gray-500"># Authenticate once;
+              reuse the client across requests</span></div>
+          <div class="code-line"><span class="text-gray-600"> 5 </span><span class="text-blue-300">client</span> <span
+              class="text-white">=</span> <span class="text-yellow-300">Client</span><span
+              class="text-white">(</span><span class="text-blue-200">api_key</span><span
+              class="text-white">=</span><span class="text-teal">os</span><span class="text-white">.</span><span
+              class="text-yellow-300">environ</span><span class="text-white">[</span><span
+              class="text-orange">"DEEPDRAFT_API_KEY"</span><span class="text-white">])</span></div>
+          <div class="code-line"><span class="text-gray-600"> 6 </span></div>
+          <div class="code-line"><span class="text-gray-600"> 7 </span><span class="text-gray-500"># Stream a deep
+              earnings analysis for NVDA Q1-2025</span></div>
+          <div class="code-line"><span class="text-gray-600"> 8 </span><span class="text-purple-400">with</span> <span
+              class="text-blue-300">client</span><span class="text-white">.</span><span
+              class="text-yellow-300">finance</span><span class="text-white">.</span><span
+              class="text-yellow-300">earnings</span><span class="text-white">(</span></div>
+          <div class="code-line"><span class="text-gray-600"> 9 </span><span class="text-white"> </span><span
+              class="text-blue-200">ticker</span><span class="text-white">=</span><span
+              class="text-orange">"NVDA"</span><span class="text-white">,</span></div>
+          <div class="code-line"><span class="text-gray-600">10 </span><span class="text-white"> </span><span
+              class="text-blue-200">period</span><span class="text-white">=</span><span
+              class="text-orange">"Q1-2025"</span><span class="text-white">,</span></div>
+          <div class="code-line"><span class="text-gray-600">11 </span><span class="text-white"> </span><span
+              class="text-blue-200">depth</span><span class="text-white">=</span><span
+              class="text-teal">AnalysisDepth</span><span class="text-white">.</span><span
+              class="text-blue-200">DEEP</span><span class="text-white">,</span></div>
+          <div class="code-line"><span class="text-gray-600">12 </span><span class="text-white"> </span><span
+              class="text-blue-200">stream</span><span class="text-white">=</span><span
+              class="text-purple-400">True</span><span class="text-white">,</span></div>
+          <div class="code-line"><span class="text-gray-600">13 </span><span class="text-white">) </span><span
+              class="text-purple-400">as</span> <span class="text-blue-300">response</span><span
+              class="text-white">:</span></div>
+          <div class="code-line"><span class="text-gray-600">14 </span><span class="text-white"> </span><span
+              class="text-purple-400">for</span> <span class="text-blue-300">chunk</span> <span
+              class="text-purple-400">in</span> <span class="text-blue-300">response</span><span
+              class="text-white">.</span><span class="text-yellow-300">iter_text</span><span
+              class="text-white">():</span></div>
+          <div class="code-line"><span class="text-gray-600">15 </span><span class="text-white"> </span><span
+              class="text-yellow-300">print</span><span class="text-white">(</span><span
+              class="text-blue-300">chunk</span><span class="text-white">, end</span><span
+              class="text-white">=</span><span class="text-orange">""</span><span class="text-white">, flush</span><span
+              class="text-white">=</span><span class="text-purple-400">True</span><span class="text-white">)</span>
+          </div>
+          <div class="code-line"><span class="text-gray-600">16 </span></div>
+          <div class="code-line output-line"><span class="text-gray-600">17 </span><span class="text-green-400">✓ [NVDA
+              Q1-2025] Revenue $26.0B (+262% YoY). Data center segment drove 87% of revenue.</span></div>
+          <div class="code-line"><span class="text-gray-600">18 </span><span class="text-green-400"> Gross margin
+              expanded to 78.4%. Management raised FY guidance to $100B. Key risk: export</span></div>
+          <div class="code-line"><span class="text-gray-600">19 </span><span class="text-green-400"> controls on H100
+              shipments to China flagged as material headwind in 10-Q filing.</span><span
+              class="terminal-cursor">█</span></div>
         </div>
       </div>
 
       <div class="mt-6 flex flex-wrap justify-center gap-x-8 gap-y-3 text-xs font-mono text-gray-500 fade-in-up">
-        <span class="flex items-center gap-2"><i data-lucide="book-open" class="w-3 h-3 text-teal"></i> Full Documentation</span>
-        <span class="flex items-center gap-2"><i data-lucide="github" class="w-3 h-3 text-teal"></i> SDK on GitHub</span>
-        <span class="flex items-center gap-2"><i data-lucide="message-square" class="w-3 h-3 text-teal"></i> Discord Community</span>
+        <span class="flex items-center gap-2"><i data-lucide="book-open" class="w-3 h-3 text-teal"></i> Full
+          Documentation</span>
+        <span class="flex items-center gap-2"><i data-lucide="github" class="w-3 h-3 text-teal"></i> SDK on
+          GitHub</span>
+        <span class="flex items-center gap-2"><i data-lucide="message-square" class="w-3 h-3 text-teal"></i> Discord
+          Community</span>
       </div>
     </div>
   </section>
